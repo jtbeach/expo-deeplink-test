@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "deeplinktest",
+    "slug": "stella-deeplinktest",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "bundleIdentifier": "jobs.stella.deeplinktest",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "jobs.stella.deeplinktest",
+      "versionCode": 1,
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "stella.jobs",
+              "pathPrefix": "/deeplinktest/"
+            },
+            {
+              "scheme": "https",
+              "host": "*.stella.jobs",
+              "pathPrefix": "/deeplinktest/"
+            },
+          ],
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
+        }
+      ],
+    }
+  }
+}
