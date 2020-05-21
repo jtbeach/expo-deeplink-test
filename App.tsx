@@ -4,14 +4,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Linking } from 'expo';
 
 export const useDeepLink = () => {
+  const [currentURL, setCurrentURL] = useState<string | null>(null);
+  const [consumedInitialUrl, setConsumedInitialUrl] = useState(false);
+
   const onUrlEvent = useCallback(
     ({ url }: { url: string | null }) => {
+      setCurrentURL(url);
       console.log(`onUrlEvent received: ${url}`);
     },
     [],
   );
 
-  const [consumedInitialUrl, setConsumedInitialUrl] = useState(false);
   useEffect(() => {
     if (!consumedInitialUrl) {
       setConsumedInitialUrl(true);
@@ -29,15 +32,17 @@ export const useDeepLink = () => {
       Linking.removeEventListener('url', onUrlEvent);
     };
   }, [onUrlEvent]);
+
+  return currentURL;
 };
 
 
 export default function App() {
-  useDeepLink();
+  const url= useDeepLink();
 
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>Current URL: {url}</Text>
     </View>
   );
 }
