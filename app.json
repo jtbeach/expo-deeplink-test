@@ -42,7 +42,7 @@
               "scheme": "https",
               "host": "*.stella.jobs",
               "pathPrefix": "/deeplinktest/"
-            },
+            }
           ],
           "category": [
             "BROWSABLE",
